@@ -1,0 +1,60 @@
+p, h1, span{
+    margin: 0;
+    line-height: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+ul, li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+button, input{
+    cursor: pointer;
+}
+.header_container{
+    display: flex;
+    flex-direction: row;
+    padding: 32px 150px;
+    align-items: center;
+    justify-content: space-between;
+}
+.gnb_container{
+    display: flex;
+    flex-direction: row;
+}
+.mainNav_container{
+    margin-right: 24px;
+}
+.mainNav_container ul{
+    display: flex;
+    flex-direction: row; 
+    cursor: pointer; 
+}
+.mainNav_container li{
+    padding: 0 24px;
+    border-right: 1px solid #dbdbdb;
+    /* margin-right: 12px; */
+}
+.mainNav_container li:last-child{
+    border-right: none;
+}
+.menu_hamburger{
+    margin-right: 24px;
+    
+}
+.menu_option{
+    display: flex;
+    cursor: pointer;
+}
+.menu_option img{
+    width: 100%;
+}
+
+.img_logo{
+    color: tomato;
+    font-size: 1rem;
+    cursor: pointer;
+}

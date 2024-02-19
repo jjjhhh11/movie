@@ -1,0 +1,15 @@
+footer {
+    background-color: black;
+    padding: 72px 150px;
+}
+
+footer div {
+    display: inline-block;
+
+    color: white;
+    font-size: 0.875rem;
+}
+
+h2{
+    margin: 0;
+}

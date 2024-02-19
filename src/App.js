@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Main from './components/main';
+import Detail from './components/detail';
 
 function App() {
+  const [Movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const getMovies = async () => {
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+      )
+    ).json();
+    setMovies(json.data.movies);
+    setLoading(false);
+    console.log("1");
+  };
+  const test=()=>{
+    console.log(`Movies : ${Movies}`)
+  }
+  useEffect(() => {
+    getMovies().then(test);
+    
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+    {/* <div>hi</div> */}
+      <Routes>
+        <Route path="/" element={<Main MoviesList={Movies}/>}></Route>
+        <Route path="/movie/:id" element={<Detail movie={Movies}/>}></Route>
+      </Routes>
+    </Router>
   );
 }
 
