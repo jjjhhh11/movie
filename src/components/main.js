@@ -7,17 +7,20 @@ import imgBanner from "../assets/img_banner.jpg";
 import icDiscover from "../assets/ic_discover.svg";
 
 import Header from "./header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function Main({ MoviesList }) {
   const [movieName, SetMovieName] = useState("");
   function inputName(e) {
     SetMovieName(e.target.value);
-    console.log(movieName);
+    // console.log(movieName);
   }
   const searchName = MoviesList.filter((movies) => {
     return movies.title.toUpperCase().includes(movieName.toUpperCase());
   }
   );
+  useEffect(() => {
+    // console.log("movieslist : "+ MoviesList);
+  }, [MoviesList]);
   return (
     <div>
       <Header />
@@ -46,7 +49,7 @@ function Main({ MoviesList }) {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

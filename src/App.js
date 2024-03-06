@@ -9,15 +9,15 @@ function App() {
   const getMovies = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year`
       )
     ).json();
     setMovies(json.data.movies);
     setLoading(false);
-    console.log("1");
+    // console.log("1");
   };
   const test=()=>{
-    console.log(`Movies : ${Movies}`)
+    // console.log(`Movies : ${Movies}`)
   }
   useEffect(() => {
     getMovies().then(test);
@@ -25,7 +25,7 @@ function App() {
   }, [])
   return (
     
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
     {/* <div>hi</div> */}
       <Routes>
         <Route path="/" element={<Main MoviesList={Movies}/>}></Route>

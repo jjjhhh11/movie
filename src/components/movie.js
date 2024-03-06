@@ -5,7 +5,6 @@ function Movie({ id, summary, img, year, title, rating, runtime }) {
   return (
     <div className={styles.movie_list_container}>
       <div className={styles.movie_container}>
-      <Link to={`/movie/${id}`}>
       <div className={styles.img_container}>
         {summary===""? <p className={styles.movie_summary}> 줄거리 없음</p>:<p className={styles.movie_summary}>줄거리 : <br/>{summary}</p>}
         
@@ -21,10 +20,11 @@ function Movie({ id, summary, img, year, title, rating, runtime }) {
           <span className={styles.movie_runtime}>{Math.round(runtime / 60)}시간 {runtime % 60}분</span>
 
         </div>
-        <Link to={`/movie/${id}`}><button className={styles.btn_detail}>상세정보</button></Link>
+      <Link to={`/movie/${id}`}>
+        <button className={styles.btn_detail}>상세정보</button>
+      </Link>
 
       </div>
-      </Link>
       </div>
     </div>
 
